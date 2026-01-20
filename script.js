@@ -490,3 +490,81 @@ console.log("回程路線:");
 console.table(outbound);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：12
+// 方法名稱：Array.prototype.indexOf()
+// ==========================================
+// 關鍵字：回傳指定元素第一次出現的索引位置
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：要尋找的元素
+//   - 第 2 個：起始搜尋位置（可選，預設 0）
+// 回傳值：Number（找到回傳索引，找不到回傳 -1）
+// 常見使用情境：檢查元素是否存在、找出位置
+// ==========================================
+
+console.log("indexOf()，回傳指定元素第一次出現的索引位置，回傳「找到回傳索引，找不到回傳 -1」。");
+console.log("");
+
+const searchLibs = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '物理研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("搜尋的陣列:");
+console.table(searchLibs);
+console.log("");
+
+const mathIndex = searchLibs.indexOf("數學研究所圖書館");
+const physicsFirst = searchLibs.indexOf("物理研究所圖書館");
+const physicsSecond = searchLibs.indexOf("物理研究所圖書館", physicsFirst + 1);
+const bioIndex = searchLibs.indexOf("生物研究所圖書館");
+
+console.log("數學館的位置:", mathIndex);
+console.log("物理館第一次出現:", physicsFirst);
+console.log("物理館第二次出現:", physicsSecond);
+console.log("生物館的位置:", bioIndex);
+
+console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：13
+// 方法名稱：Array.prototype.lastIndexOf()
+// ==========================================
+// 關鍵字：回傳指定元素最後一次出現的索引位置
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：要尋找的元素
+//   - 第 2 個：起始搜尋位置，從此位置向前搜尋（可選，預設陣列末端）
+// 回傳值：Number（找到回傳索引，找不到回傳 -1）
+// 常見使用情境：從後往前搜尋、找出最後出現位置、處理重複項目
+// ==========================================
+
+console.log("lastIndexOf()，回傳指定元素最後一次出現的索引位置，回傳「找到回傳索引，找不到回傳 -1」。");
+console.log("");
+
+const visitLog = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '數學研究所圖書館',
+  '化學研究所圖書館',
+  '數學研究所圖書館'
+];
+
+console.log("訪問記錄:");
+console.table(visitLog);
+console.log("");
+
+const lastMath = visitLog.lastIndexOf("數學研究所圖書館");
+const lastMathBefore3 = visitLog.lastIndexOf("數學研究所圖書館", 3);
+const lastPhysics = visitLog.lastIndexOf("物理研究所圖書館");
+
+console.log("數學館最後出現的位置:", lastMath);
+console.log("索引 3 之前數學館最後的位置:", lastMathBefore3);
+console.log("物理館最後出現的位置:", lastPhysics);
+
+console.log('--------------------------------------------------');
