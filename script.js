@@ -239,3 +239,107 @@ console.log('剩餘的路線:');
 console.table(itinerary3);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：06
+// 方法名稱：Array.prototype.join()
+// ==========================================
+// 關鍵字：將陣列所有元素用指定分隔符號連接成字串
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個，分隔符號字串（可選，預設為逗號）
+// 回傳值：String（連接後的字串）
+// 常見使用情境：產生顯示文字、製作 URL 路徑
+// ==========================================
+// 情境：將圖書館清單組合成各種格式的文字
+
+console.log("join()，將陣列所有元素用指定分隔符號連接成字串，回傳「連接後的字串」。");
+console.log("");
+
+const libraries = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log('原始陣列:');
+console.table(libraries);
+
+console.log("");
+console.log("【情境 1】產生參觀路線說明文字");
+
+const routeText = libraries.join(' → ');
+console.log('參觀路線:', routeText);
+
+console.log("");
+console.log("【情境 2】產生換行文字");
+
+const multiLine = libraries.join('\n');
+console.log('多行清單:\n' + multiLine);
+
+console.log("");
+console.log("【情境 3】使用預設分隔符號（逗號）");
+
+const defaultJoin = libraries.join();
+console.log('預設格式:', defaultJoin);
+
+console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：07
+// 方法名稱：Array.prototype.toString()
+// ==========================================
+// 關鍵字：將陣列轉換成字串（相當於 join() 不帶參數）
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：無參數
+// 回傳值：String（用逗號連接的字串）
+// 常見使用情境：快速將陣列轉成字串、除錯顯示、隱式轉換
+// ==========================================
+// 情境：將圖書館清單轉換成簡單的字串格式
+
+console.log("toString()，將陣列轉換成字串，回傳「用逗號連接的字串」。");
+console.log("");
+
+const libList = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log('原始陣列:');
+console.table(libList);
+
+console.log("");
+console.log("【情境 1】轉換成字串");
+
+const str = libList.toString();
+console.log('轉換結果:', str);
+
+console.log('結果型別:', typeof str);
+
+console.log("");
+console.log("【情境 2】toString() vs join() 的比較");
+
+const toStringResult = libList.toString();
+const joinResult = libList.join();
+
+console.log('toString():', toStringResult);
+console.log('join():     ', joinResult);
+console.log('兩者相同？', toStringResult === joinResult);
+
+console.log("");
+console.log("【情境 3】隱式轉換（字串拼接時自動呼叫 toString）");
+
+const message = '今日參觀: ' + libList;
+console.log(message);
+
+console.log("");
+console.log("【補充說明】");
+console.log("toString() 等同於 join()，都是用逗號連接");
+console.log("但 join() 可以指定分隔符號，toString() 不行");
+console.log("例如：");
+console.log(" join(' → '):", libList.join(' → '));
+console.log(" toString():", libList.toString());
+
+console.log('--------------------------------------------------');
