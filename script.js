@@ -866,3 +866,43 @@ const scienceLibs = allLibs.filter(lib => lib.includes("科學"));
 console.table(scienceLibs);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：21
+// 方法名稱：Array.prototype.slice()
+// ==========================================
+// 關鍵字（一句話說明）：提取陣列的一部分，回傳新陣列
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：起始索引（包含，可選，預設 0）
+//   - 第 2 個：結束索引（不包含，可選，預設到陣列結尾）
+// 回傳值：Array（提取出來的新陣列）
+// 常見使用情境：複製陣列、取得部分資料、分頁顯示
+// ==========================================
+// 情境：從完整行程中提取「上午場」的參觀地點
+
+console.log("slice()，提取陣列的一部分，回傳「新的陣列」，不改變原陣列。");
+console.log("情境：從完整行程中提取「上午場」的參觀地點。");
+console.log("");
+
+const fullSchedule = [
+  '數學研究所圖書館',    // 上午
+  '物理研究所圖書館',    // 上午
+  '化學研究所圖書館',    // 下午
+  '地球科學研究所圖書館' // 下午
+];
+
+console.log("完整行程:");
+console.table(fullSchedule);
+console.log("");
+
+console.log("提取上午場（前兩間）:");
+const morningSession = fullSchedule.slice(0, 2);
+
+console.log("上午參觀:");
+console.table(morningSession);
+console.log("");
+
+console.log("原始行程未改變，長度:", fullSchedule.length);
+
+console.log('--------------------------------------------------');
