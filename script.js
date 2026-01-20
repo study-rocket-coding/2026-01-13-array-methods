@@ -568,3 +568,61 @@ console.log("索引 3 之前數學館最後的位置:", lastMathBefore3);
 console.log("物理館最後出現的位置:", lastPhysics);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：14
+// 方法名稱：Array.prototype.length
+// ==========================================
+// 關鍵字：取得或設定陣列的元素數量
+// 是否改變原陣列（mutate）：讀取時否；設定時是
+// 參數說明：這是屬性，不是方法，不需要參數
+// 回傳值：Number（陣列的長度）
+// 常見使用情境：
+//   1. 獲取陣列大小（判斷是否為空、顯示總筆數）
+//   2. 清空陣列（length = 0）
+//   3. 截斷陣列（length = n）
+// ==========================================
+// 情境：管理今日參觀的研究所圖書館清單
+
+console.log("length 屬性，取得或設定陣列長度。");
+console.log("");
+
+const todayPlan = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("【情境 1】讀取 length：不會改變原陣列");
+
+console.log("今日參觀清單:");
+console.table(todayPlan);
+
+const totalLibraries = todayPlan.length;
+console.log("今日預計參觀的圖書館數量:", totalLibraries);
+
+if (totalLibraries === 0) {
+  console.log("今天沒有安排參觀任何圖書館。");
+} else {
+  console.log(`今天共有 ${totalLibraries} 間圖書館需要參觀。`);
+}
+
+console.log("");
+console.log("【情境 2】設定 length 截斷陣列：會改變原陣列");
+
+// 截斷陣列,只保留前兩間
+todayPlan.length = 2;
+console.log("截斷後的清單:");
+console.table(todayPlan);
+console.log("截斷後的數量:", todayPlan.length);
+
+console.log("");
+console.log("【情境 3】設定 length 為 0 清空陣列：會改變原陣列");
+
+// 清空陣列
+todayPlan.length = 0;
+console.log("清空後的數量:", todayPlan.length);
+console.log("清空後的清單:", todayPlan);
+
+console.log('--------------------------------------------------');
