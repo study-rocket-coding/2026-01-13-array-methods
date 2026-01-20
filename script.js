@@ -828,3 +828,41 @@ console.log("加上編號後的清單:");
 console.table(numberedLibraries);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：20
+// 方法名稱：Array.prototype.filter()
+// ==========================================
+// 關鍵字：篩選符合條件的元素
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個 callback 函式，回傳 true 或 false 判斷是否保留元素
+// 回傳值：新的陣列，包含所有 callback 回傳 true 的元素
+// 常見使用情境：從清單中挑選特定條件的元素，如分類、篩選或搜尋
+// ==========================================
+// 情境：從所有圖書館中篩選出特定類型
+
+console.log("filter()，篩選符合條件的元素，回傳「新的陣列」，不改變原陣列。");
+console.log("情境：從所有圖書館中篩選出特定類型。");
+console.log("");
+
+const allLibs = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("所有圖書館:");
+console.table(allLibs);
+console.log("");
+
+console.log("篩選名稱超過 8 個字的圖書館:");
+const longNames = allLibs.filter(lib => lib.length > 8);
+console.table(longNames);
+console.log("");
+
+console.log("篩選「科學」相關的圖書館:");
+const scienceLibs = allLibs.filter(lib => lib.includes("科學"));
+console.table(scienceLibs);
+
+console.log('--------------------------------------------------');
