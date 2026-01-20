@@ -742,3 +742,50 @@ const allShortName = validateList.every(name => name.length < 8);
 console.log("全部名稱都少於 8 個字嗎?", allShortName ? "是" : "否");
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：18
+// 方法名稱：Array.prototype.forEach()
+// ==========================================
+// 關鍵字：逐一走訪陣列中的每個元素
+// 是否改變原陣列（mutate）：否（但可在 callback 中間接修改）
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：callback 函式 (currentValue, index, array)
+//     - currentValue：目前正在處理的陣列元素本身
+//     - index：該元素在陣列中的索引位置
+//     - array：原本被 forEach 呼叫的陣列
+// 回傳值：undefined
+// 常見使用情境：
+//   - 只針對每一筆資料做處理（顯示、紀錄、操作）
+//   - 不需要產生新陣列、不需要回傳結果
+// ==========================================
+// 情境：依序走訪今日參觀的圖書館清單
+
+console.log("forEach()，依序把陣列的每個元素「交給 callback 函式執行一次」，不回傳新陣列。");
+console.log("情境：依序走訪今日參觀的圖書館清單。");
+console.log("");
+
+const dailyChecklist = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("今日參觀清單：");
+console.table(dailyChecklist);
+console.log("");
+
+console.log("依序列出參觀順序：");
+
+dailyChecklist.forEach((library, index) => {
+  console.log(`第 ${index + 1} 站：${library}`);
+});
+
+console.log("列出完成。");
+console.log("");
+
+console.log("forEach() 執行完畢，原陣列未被修改：");
+console.table(dailyChecklist);
+
+console.log('--------------------------------------------------');
