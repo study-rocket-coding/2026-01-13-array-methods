@@ -789,3 +789,42 @@ console.log("forEach() 執行完畢，原陣列未被修改：");
 console.table(dailyChecklist);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：19
+// 方法名稱：Array.prototype.map()
+// ==========================================
+// 關鍵字：將陣列元素轉換成新的陣列
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個，callback 函式 (currentValue, index, array) => newValue
+// 回傳值：新的陣列（長度與原陣列相同）
+// 常見使用情境：資料格式轉換（加編號、單位、標籤）
+// 以下情況不應該使用 map：
+//   1. 不使用回傳的新陣列，
+//   2. 或/且不需要回傳新陣列。
+// ==========================================
+// 情境：替圖書館清單加上順序編號（不影響原本清單）
+
+console.log("map()，將每個元素轉換後，回傳「新的陣列」，不改變原陣列。");
+console.log("情境：替圖書館清單加上順序編號。");
+console.log("");
+
+const libraryList = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("原始圖書館清單:");
+console.table(libraryList);
+console.log("");
+
+const numberedLibraries = libraryList.map((library, index) => {
+  return `${index + 1}. ${library}`;
+});
+
+console.log("加上編號後的清單:");
+console.table(numberedLibraries);
+
+console.log('--------------------------------------------------');
