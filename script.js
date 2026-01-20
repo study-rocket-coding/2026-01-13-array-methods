@@ -906,3 +906,41 @@ console.log("");
 console.log("原始行程未改變，長度:", fullSchedule.length);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：22
+// 方法名稱：Array.prototype.concat()
+// ==========================================
+// 關鍵字（一句話說明）：合併兩個或多個陣列，回傳新陣列
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個以上，要合併的陣列或值
+// 回傳值：Array（合併後的新陣列）
+// 常見使用情境：合併多個資料來源、組合搜尋結果、整合分類清單
+// ==========================================
+// 情境：合併不同學科的圖書館成為完整參觀清單
+
+console.log("concat()，合併兩個或多個陣列，回傳「合併後的新陣列」，不改變原陣列。");
+console.log("情境：合併不同學科的圖書館成為完整參觀清單。");
+console.log("");
+
+const mathPhysics = ["數學研究所圖書館", "物理研究所圖書館"];
+const chemistry = ["化學研究所圖書館"];
+const earthScience = ["地球科學研究所圖書館"];
+
+console.log("數理組:");
+console.table(mathPhysics);
+console.log("");
+
+console.log("化學組:");
+console.table(chemistry);
+console.log("");
+
+console.log("地科組:");
+console.table(earthScience);
+console.log("");
+
+console.log("合併成完整清單:");
+const allLibraries = mathPhysics.concat(chemistry, earthScience);
+
+console.log("所有要參觀的圖書館:");
+console.table(allLibraries);
