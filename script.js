@@ -343,3 +343,81 @@ console.log(" join(' → '):", libList.join(' → '));
 console.log(" toString():", libList.toString());
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：08
+// 方法名稱：Array.prototype.reduce()
+// ==========================================
+// 關鍵字：將陣列元素累積計算成單一值
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：累積函式 (accumulator, current, index, array) => nextAccumulator
+//     - 函式內有四個參數，第一個是計算的值（必填），第二個是取得的元素（必填），第三個是該元素的索引值（選填），第四個是原本的陣列（選填）
+//   - 第 2 個：初始值（可選）
+// 回傳值：累積計算的最終結果
+// 常見使用情境：統計總和、計算平均、將陣列轉換為物件、組合字串
+// ==========================================
+// 情境：組合字串、建立索引對照表（將陣列轉換為物件）
+
+console.log("reduce()，將陣列元素累積計算成單一值，回傳「累積計算的最終結果」。");
+console.log("");
+
+const libNames = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("圖書館清單:");
+console.table(libNames);
+
+console.log("組成路線:");
+const todayRoute = libNames.reduce((path, name) => path + ' → ' + name);
+console.log("路線:", todayRoute);
+
+console.log("建立索引對照表:");
+const indexMap = libNames.reduce((map, name, index) => {
+  map[name] = index;
+  return map;
+}, {});
+console.log("索引表:");
+console.table(indexMap);
+
+console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：09
+// 方法名稱：Array.prototype.reduceRight()
+// ==========================================
+// 關鍵字：從右到左將陣列元素累積計算成單一值
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+//   - 第 1 個：累積函式 (accumulator, current, index, array) => nextAccumulator
+//   - 第 2 個：初始值（可選）
+// 回傳值：累積計算的最終結果
+// 常見使用情境：從右到左組合字串、反向處理資料
+// ==========================================
+// 情境：製作回程路線（從最後一站往回組合）
+
+console.log("reduceRight()，從右到左將陣列元素累積計算成單一值，回傳「累積計算的最終結果」。");
+console.log("");
+
+const destinations = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("去程順序:");
+console.table(destinations);
+
+console.log("組成回程路線:");
+const returnPath = destinations.reduceRight((path, name) => {
+  return path ? path + " ← " + name : name;
+}, '');
+
+console.log("回程路線:", returnPath);
+
+console.log('--------------------------------------------------');
