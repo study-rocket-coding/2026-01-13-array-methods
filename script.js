@@ -626,3 +626,119 @@ console.log("清空後的數量:", todayPlan.length);
 console.log("清空後的清單:", todayPlan);
 
 console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：15
+// 方法名稱：Array.prototype.includes()
+// ==========================================
+// 關鍵字：檢查陣列中是否包含指定元素
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：
+// - 第 1 個：要搜尋的元素
+// - 第 2 個（可選）：從哪個索引開始搜尋（預設 0）
+// 回傳值：Boolean（true 表示包含，false 表示不包含）
+// 常見使用情境：判斷列表中是否存在某項目，如是否已完成任務、是否有特定商品、是否符合資格條件
+// ==========================================
+// 情境：檢查某圖書館是否在今日參觀路線中
+
+console.log("includes()，檢查陣列中是否包含指定元素，回傳 Boolean。");
+console.log("情境：檢查某圖書館是否在今日參觀路線中。");
+console.log("");
+
+const visitRoute = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("今日參觀路線:");
+console.table(visitRoute);
+
+const libraryToCheck1 = "物理研究所圖書館";
+const libraryToCheck2 = "生命科學圖書館";
+
+console.log(`檢查是否有「${libraryToCheck1}」:`);
+const hasLibrary1 = visitRoute.includes(libraryToCheck1);
+console.log(hasLibrary1);
+
+console.log(`檢查是否有「${libraryToCheck2}」:`);
+const hasLibrary2 = visitRoute.includes(libraryToCheck2);
+console.log(hasLibrary2);
+
+console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：16
+// 方法名稱：Array.prototype.some()
+// ==========================================
+// 關鍵字：測試是否至少有一個元素符合條件
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個，測試函式 (element, index, array) => boolean
+// 回傳值：Boolean（只要有一個通過測試就回傳 true）
+// 常見使用情境：檢查是否存在符合條件的項目、驗證、權限檢查
+// ==========================================
+// 情境：檢查參觀清單中是否包含特定圖書館
+
+console.log("some()，測試是否至少有一個元素符合條件，只要有任何一個元素符合判斷條件，就會回傳 true，如果全都不符合，就會回傳 false。");
+console.log("情境：檢查參觀清單中是否包含特定圖書館。");
+console.log("");
+
+const checkList = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("參觀清單:");
+console.table(checkList);
+
+console.log("檢查清單內容:");
+
+const hasBiology = checkList.some(lib => lib.includes("生物"));
+console.log("有包含生物相關的嗎?", hasBiology ? "有" : "沒有");
+
+const hasLongName = checkList.some(lib => lib.length > 8);
+console.log("有名稱超過 8 個字的嗎?", hasLongName ? "有" : "沒有");
+
+console.log('--------------------------------------------------');
+
+// ==========================================
+// 編號：17
+// 方法名稱：Array.prototype.every()
+// ==========================================
+// 關鍵字：測試是否所有元素都符合條件
+// 是否改變原陣列（mutate）：否
+// 參數說明（傳入的數量或用途）：1 個，測試函式 (element, index, array) => boolean
+// 回傳值：Boolean（全部通過測試才回傳 true）
+// 常見使用情境：驗證所有資料完整性、檢查權限、表單驗證
+// ==========================================
+// 情境：驗證所有圖書館名稱是否符合規範
+
+console.log("every()，測試是否所有元素都符合條件，只要有任何一個元素不符合判斷條件，會回傳 false，如果全部符合，就會回傳 true。");
+console.log("情境：驗證所有圖書館名稱是否符合規範。");
+console.log("");
+
+const validateList = [
+  '數學研究所圖書館',
+  '物理研究所圖書館',
+  '化學研究所圖書館',
+  '地球科學研究所圖書館'
+];
+
+console.log("待驗證清單:");
+console.table(validateList);
+
+console.log("驗證所有圖書館名稱是否符合規範:");
+
+const allHaveLibWord = validateList.every(name => name.includes("圖書館"));
+console.log("全部都包含「圖書館」三個字嗎?", allHaveLibWord ? "是" : "否");
+
+const allAreResearch = validateList.every(name => name.includes("研究所"));
+console.log("全部都是「研究所」圖書館嗎?", allAreResearch ? "是" : "否");
+
+const allShortName = validateList.every(name => name.length < 8);
+console.log("全部名稱都少於 8 個字嗎?", allShortName ? "是" : "否");
+
+console.log('--------------------------------------------------');
